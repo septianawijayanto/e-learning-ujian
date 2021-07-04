@@ -27,6 +27,7 @@
                 <td>{{$dt->jenis}}</td>
                 <td>
                     <a href="{{url('guru/nilai/'.$dt->id.'/delete')}}" class="btn btn-danger btn-sm btn-flat" onclick="return confirm('Apakah Akan Anda Hapus?')"><i class="far fa-times-circle"></i> Hapus </a>
+                    <a href="" class="btn btn-success btn-sm btn-flat"><i class="far fa-eye"></i> Show </a>
                 </td>
             </tr>
             @endforeach

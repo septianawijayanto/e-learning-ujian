@@ -18,11 +18,11 @@ class DashboardController extends Controller
         $title = 'Dashboard Admin';
         $siswa = Siswa::count();
         $sb = Siswa::where('created_at', today())->count();
-        $guru = Guru::where('created_at', today())->count();
+        $guru = Guru::count();
         $gb = Guru::where('created_at', today())->count();
-        $mapel = Mapel::where('created_at', today())->count();
+        $mapel = Mapel::count();
         $mb = Mapel::where('created_at', today())->count();
-        $kelas = Kelas::where('created_at', today())->count();
+        $kelas = Kelas::count();
         $kb = Kelas::where('created_at', today())->count();
 
         return view('admin.dashboard.index', compact(

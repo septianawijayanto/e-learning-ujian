@@ -28,8 +28,8 @@ class SiswaGrupController extends Controller
             return redirect()->back()
                 ->with('info', 'Anda sudah bergabung digrup ini');
         }
-        $cek = Grup::where('kelas_id', Session::get('kelas_id'))->count();
-        if ($cek < 1) {
+        $cek = Grup::where('kelas_id', Session::get('kelas_id'))->find($grup->id);
+        if ($cek < '1') {
             return redirect()->back()->with('peringatan', 'Grup ini bukan grup kelas Anda');
         }
         GrupSiswa::create([
@@ -38,7 +38,7 @@ class SiswaGrupController extends Controller
             'status' => 1,
             'deskripsi' => 'Gabung Sendiri',
         ]);
-        return redirect()->back()->with('sukses', 'Anda sudah bergabung digrup ' . $grup->kelas->kelas . " " . $grup->mapel->mapel);
+        return redirect()->back()->with('sukses', 'Anda sudah berhasil bergabung digrup ' . $grup->kelas->kelas . " " . $grup->mapel->mapel);
     }
     public function index()
     {

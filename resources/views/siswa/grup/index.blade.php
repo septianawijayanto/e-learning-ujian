@@ -5,6 +5,9 @@
         <div class="col">
             <a href="#!" class="btn btn-sm btn-warning btn-refresh">Refresh</a>
         </div>
+        <div class="col text-right">
+            <a href="#!" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Gabung Ke Grup </a>
+        </div>
     </div>
 </div>
 <div class="table-responsive">
@@ -38,6 +41,33 @@
             @endforeach
         </tbody>
     </table>
+</div>
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah Mata Pelajaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('gabung')}}" method="POST" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <div class="form-group {{$errors->has('kode') ? 'has-error' :''}}">
+                        <label for="exampleFormControlInput1">Kelas Online</label>
+                        <input name="kode" type="text" class="form-control" id="inputkode" placeholder="Input kode" value="{{old('kode')}}">
+                        @if($errors->has('kode'))
+                        <span class="right badge badge-danger" class=" help-block">{{$errors->first('kode')}}</span>
+                        @endif
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-sm"><i class="ni ni-send"></i> Gabung</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('scripts')

@@ -150,8 +150,8 @@ class GrupController extends Controller
         if ($grupsiswa != null) {
             return redirect()->back()->with('gagal', 'Siswa Sudah bergabung digrup yang sama');
         }
-        $cek = Grup::where('kelas_id', $siswa->kelas_id)->count();
-        if ($cek < 1) {
+        $cek = Grup::where('kelas_id', $siswa->kelas_id)->find($request->id);
+        if ($cek < '1') {
             return redirect()->back()->with('peringatan', 'Grup ini bukan grup kelas Anda');
         }
         $data['siswa_id'] = $siswa->id;

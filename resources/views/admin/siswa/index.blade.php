@@ -33,8 +33,8 @@
             <tr>
                 <td>{{$e+1}}</td>
                 <td>{{$dt->no_induk}}</td>
-                <!-- <td>{{$dt->nisn}}</td> -->
-                <td> <a href="{{ \Storage::url($dt->foto) }}">Lihat File </a></td>
+                <td>{{$dt->nisn}}</td>
+                <!-- <td> <a href="{{ \Storage::url($dt->foto) }}">Lihat File </a></td> -->
                 <td>{{$dt->nama}}</td>
                 <!-- <td>{{$dt->username}}</td> -->
                 <td>{{$dt->jenkel}}</td>
@@ -71,7 +71,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Siswa</h5>
+                <h5 class="modal-title">Tambah Data Siswa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

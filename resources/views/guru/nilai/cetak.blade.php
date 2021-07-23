@@ -1,3 +1,5 @@
+@extends('laporan.master')
+@section('konten')
 <table class="table align-items-center table-flush mytable">
     <thead class="thead-light">
         <tr>
@@ -22,3 +24,4 @@
         @endforeach
     </tbody>
 </table>
+@endsection

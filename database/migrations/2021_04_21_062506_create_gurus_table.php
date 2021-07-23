@@ -15,7 +15,7 @@ class CreateGurusTable extends Migration
     {
         Schema::create('guru', function (Blueprint $table) {
             $table->id();
-            $table->string('no_induk', 12)->unique();
+            $table->string('no_induk', 20)->unique();
             $table->string('password');
             $table->string('username')->unique();
             $table->string('nama', 50);

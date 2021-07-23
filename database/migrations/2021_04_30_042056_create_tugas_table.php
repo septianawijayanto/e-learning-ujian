@@ -21,7 +21,7 @@ class CreateTugasTable extends Migration
             $table->foreignId('kelas_id')->references('id')->on('kelas')->onDelete('cascade');
             $table->string('jenis', 10);
             $table->longText('isi');
-            $table->date('batas_waktu');
+            $table->dateTime('batas_waktu');
             $table->text('deskripsi');
             $table->timestamps();
         });

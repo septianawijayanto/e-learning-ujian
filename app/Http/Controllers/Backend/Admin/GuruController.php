@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Model\Guru;
 use Carbon\Carbon;
+use PDF;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -27,7 +28,7 @@ class GuruController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'nama' => 'required|max:50',
-            'no_induk' => 'required|max:10|unique:guru',
+            'no_induk' => 'required|max:20|unique:guru',
             'jenkel' => 'required',
             'alamat' => 'required',
             'password' => 'required|min:8',
@@ -53,7 +54,7 @@ class GuruController extends Controller
         $data['deskripsi'] = $request->deskripsi;
         $data['status'] = $request->status;
         $data['created_at'] =  date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
-        $data['updated_at'] =  $data['updated_at'] = date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
+        $data['updated_at'] = date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
         $file = $request->file('foto');
         if ($file) {
             $data['foto'] = $file->store('public/foto');
@@ -89,7 +90,7 @@ class GuruController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'nama' => 'required|max:50',
-            'no_induk' => 'required|max:10',
+            'no_induk' => 'required|max:20',
             'jenkel' => 'required',
             'alamat' => 'required',
             'password' => 'required|min:8',
@@ -128,5 +129,13 @@ class GuruController extends Controller
         $data = Guru::find($id);
         $title = "Detail Data $data->nama";
         return view('admin.guru.show', compact('title', 'data'));
+    }
+    public function cetak(Request $request)
+    {
+        $title = 'Data Guru';
+        $tgl = date('d F Y');
+        $data = Guru::get();
+        $pdf = PDF::loadView('admin.guru.lapguru', compact('data', 'tgl', 'title'))->setPaper('a4', 'Landscape');
+        return $pdf->stream();
     }
 }

@@ -10,10 +10,10 @@
                 <div class="col-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Waktu Mulai</h5>
+                            <!-- <h5 class="card-title">Waktu Mulai</h5>
                             <div>{{$mulai->waktu_mulai}}</div>
                             <h6 class="card-subtitle mb-2 text-muted">waktu kamu tersisa:</h6>
-                            <div id="sisa" data-timer=""></div>
+                            <div id="sisa" data-timer=""></div> -->
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Waktu</h5>

@@ -52,6 +52,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::post('siswa/{id}/update', [SiswaController::class, 'update']);
         Route::get('siswa/{id}/delete', [SiswaController::class, 'delete']);
         Route::get('siswa/{id}/show', [SiswaController::class, 'show']);
+        Route::get('siswa/cetak', [SiswaController::class, 'cetak']);
 
         //Guru
         Route::get('guru', [GuruController::class, 'index'])->name('guru');
@@ -60,6 +61,7 @@ Route::group(['middleware' => 'admin'], function () {
         Route::post('guru/{id}/update', [GuruController::class, 'update']);
         Route::get('guru/{id}/delete', [GuruController::class, 'delete']);
         Route::get('guru/{id}/show', [GuruController::class, 'show']);
+        Route::get('guru/cetak', [GuruController::class, 'cetak']);
 
         //Mapel
         Route::get('mapel', [MapelController::class, 'index'])->name('mapel');
@@ -145,6 +147,7 @@ Route::group(['middleware' => 'guru'], function () {
 
         //Kelola Nilai
         Route::get('kelola-nilai', [KelolaNilaiController::class, 'index'])->name('nilai');
+        Route::get('nilai/{id}/detail', [KelolaNilaiController::class, 'detail']);
         Route::get('nilai/{id}/delete', [KelolaNilaiController::class, 'delete']);
         Route::get('nilai/cetak', [KelolaNilaiController::class, 'cetak']);
 

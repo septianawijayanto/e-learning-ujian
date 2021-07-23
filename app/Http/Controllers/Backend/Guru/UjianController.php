@@ -222,8 +222,9 @@ class UjianController extends Controller
     }
     public function detailpilgan($id)
     {
-        $data = SoalPilgan::where('id', $id)->first();
-        return view('guru.ujian.pilgan.detail', compact('data'));
+        $title = 'Detail Soal';
+        $data = SoalPilgan::where('id', $id)->get();
+        return view('guru.ujian.pilgan.detail', compact('data', 'title'));
     }
     public function createessay(Request $request)
     {

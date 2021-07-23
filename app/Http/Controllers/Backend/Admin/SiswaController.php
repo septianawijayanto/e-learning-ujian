@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Model\Kelas;
 use App\Models\Model\Siswa;
 use Carbon\Carbon;
+use PDF;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -139,5 +140,13 @@ class SiswaController extends Controller
         $data = Siswa::find($id);
         $title = "Detail Data $data->nama";
         return view('admin.siswa.show', compact('title', 'data'));
+    }
+    public function cetak(Request $request)
+    {
+        $title = 'Data Siswa';
+        $tgl = date('d F Y');
+        $data = Siswa::get();
+        $pdf = PDF::loadView('admin.siswa.lapsiswa', compact('data', 'tgl', 'title'))->setPaper('a4', 'Landscape');
+        return $pdf->stream();
     }
 }

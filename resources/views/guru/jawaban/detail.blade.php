@@ -11,26 +11,36 @@
 <div class="table-responsive">
     <!-- Projects table -->
     <table class="table align-items-center table-flush mytable">
-        <thead class="thead-light">
+
+        <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Mapel</th>
-                <th scope="col">Jenis</th>
-                <th scope="col">Aksi</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Soal</th>
+                <th scope="col">Pilihan</th>
+                <th scope="col">Status</th>
+                <th scope="col">Skor</th>
             </tr>
         </thead>
+        <?php $no = 0; ?>
+        @foreach($data as $item)
         <tbody>
-            @foreach($data as $e=>$dt)
             <tr>
-                <td>{{$e+1}}</td>
-                <td>{{$dt->mapel->mapel}}</td>
-                <td>{{$dt->paket}}</td>
-                <td>
-                    <a href="{{url('guru/jawaban/'.$dt->id.'/detail-pilgan')}}" class="btn btn-success btn-sm btn-flat"><i class="far fa-eye"></i> Show </a>
-                </td>
+                <th scope="row"><?= $no = $no + 1 ?></th>
+                <td>{{ $item->siswa->nama }}</td>
+                <td>{!! $item->detailSoal->soal !!}</td>
+                <td>{{ $item->pilihan }}</td>
+                @if($item->benar == 1)
+                <td><button class="btn btn-success">B</button></td>
+                @elseif($item->salah == 1)
+                <td><button class="btn btn-danger">S</button></td>
+                @endif
+                <td>{{ $item->score }}</td>
             </tr>
-            @endforeach
+
         </tbody>
+        @endforeach
+
     </table>
 </div>
 @endsection

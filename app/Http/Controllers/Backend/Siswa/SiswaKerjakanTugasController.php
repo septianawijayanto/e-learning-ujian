@@ -51,7 +51,7 @@ class SiswaKerjakanTugasController extends Controller
             'deskripsi' => 'required',
 
         ], $messages);
-        $telat = today();
+        $telat = Carbon::now();
         $tugas = Tugas::find($request->id);
         if ($telat > $tugas->batas_waktu) {
             return redirect()->back()->with('gagal', 'Batas Waktu Pengumpulan Habis!');

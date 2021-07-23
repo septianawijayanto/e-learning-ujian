@@ -113,7 +113,7 @@
     <table class="center">
         <tr>
             <td rowspan="3" class="center" style="border: 0px;">
-                <img src="gambar/logo.jpeg" class="center" class="img img-responsive">
+                <img src="gambar/logokabupaten.jpg" class="center" class="img img-responsive">
             </td>
             <td style="border: 0px;">
                 <b> PEMERINTAH KABUPATEN TANJUNG JABUNG TIMUR</b>

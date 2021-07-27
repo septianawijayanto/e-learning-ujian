@@ -33,6 +33,20 @@
                             <span class="right badge badge-danger" class=" help-block">{{$errors->first('no_induk')}}</span>
                             @endif
                         </div>
+                        <div class="form-group {{$errors->has('golongan') ? 'has-error' :''}}">
+                            <label for="exampleFormControlInput1">Golongan</label>
+                            <input name="golongan" type="text" class="form-control" id="inputgolongan" placeholder="Input golongan" value="{{$data->golongan}}">
+                            @if($errors->has('golongan'))
+                            <span class="right badge badge-danger" class=" help-block">{{$errors->first('golongan')}}</span>
+                            @endif
+                        </div>
+                        <div class="form-group {{$errors->has('lulusan') ? 'has-error' :''}}">
+                            <label for="exampleFormControlInput1">Pendidikan</label>
+                            <input name="lulusan" type="text" class="form-control" id="inputlulusan" placeholder="Input Pendidikan" value="{{$data->lulusan}}">
+                            @if($errors->has('lulusan'))
+                            <span class="right badge badge-danger" class=" help-block">{{$errors->first('lulusan')}}</span>
+                            @endif
+                        </div>
                         <div class="form-group {{$errors->has('username') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">Username</label>
                             <input name="username" type="text" class="form-control" id="inputusername" placeholder="Input Username" value="{{$data->username}}">
@@ -49,7 +63,8 @@
                         </div>
                         <div class="form-group {{$errors->has('password') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">Password</label>
-                            <input name="password" type="password" class="form-control" id="exampleInputpassword1" placeholder="Input Password" value="{{$data->password}}">
+                            <input name="password" type="password" class="form-control" id="exampleInputpassword1" placeholder="Input Password" value="">
+                            <labe class="badge badge-primary">Inputkan Ulang Jika Ingi Rubah Data</labe>
                             @if($errors->has('password'))
                             <span class="right badge badge-danger" class=" help-block">{{$errors->first('password')}}</span>
                             @endif
@@ -61,6 +76,9 @@
                             <span class="right badge badge-danger" class=" help-block">{{$errors->first('tempat_lahir')}}</span>
                             @endif
                         </div>
+
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group {{$errors->has('tgl_lahir') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">Tanggal Lahir</label>
                             <input name="tgl_lahir" type="date" class="form-control" id="inputtgl_lahir" placeholder="Input Tanggal Lahir" value="{{$data->tgl_lahir}}">
@@ -69,8 +87,6 @@
                             @endif
                         </div>
 
-                    </div>
-                    <div class="col-lg-6">
                         <div class="form-group {{$errors->has('no_telp') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">No Telepon</label>
                             <input name="no_telp" type="text" class="form-control" id="inputno_telp" placeholder="Input No Telepon" value="{{$data->no_telp}}">

@@ -55,7 +55,8 @@
                         </div>
                         <div class="form-group {{$errors->has('password') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">Password</label>
-                            <input name="password" type="password" class="form-control" id="exampleInputpassword1" placeholder="Input Password" value="{{$data->password}}">
+                            <input name="password" type="password" class="form-control" id="exampleInputpassword1" placeholder="Input Password" value="">
+                            <labe class="badge badge-primary">Inputkan Ulang Jika Ingi Rubah Data</labe>
                             @if($errors->has('password'))
                             <span class="right badge badge-danger" class=" help-block">{{$errors->first('password')}}</span>
                             @endif

@@ -38,11 +38,16 @@ class GuruController extends Controller
             'tempat_lahir' => 'required|max:50',
             'tgl_lahir' => 'required',
             'status' => 'required',
+            'golongan' => 'required',
+            'lulusan' => 'required',
+            // 'ket' => 'required',
             'username' => 'required|unique:guru',
             'foto' => 'mimes:jpg,jpeg,png',
         ], $messages);
         $data['no_induk'] = $request->no_induk;
         $data['nama'] = $request->nama;
+        $data['golongan'] = $request->golongan;
+        $data['lulusan'] = $request->lulusan;
         $data['username'] = $request->username;
         $data['password'] = bcrypt($request->password);
         $data['tempat_lahir'] = $request->tempat_lahir;
@@ -53,6 +58,7 @@ class GuruController extends Controller
         $data['alamat'] = $request->alamat;
         $data['deskripsi'] = $request->deskripsi;
         $data['status'] = $request->status;
+        // $data['ket'] = $request->ket;
         $data['created_at'] =  date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
         $data['updated_at'] = date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
         $file = $request->file('foto');
@@ -102,9 +108,14 @@ class GuruController extends Controller
             'status' => 'required',
             'username' => 'required',
             'foto' => 'mimes:jpg,jpeg,png',
+            'golongan' => 'required',
+            'lulusan' => 'required',
+            // 'ket' => 'required',
         ], $messages);
         $data['no_induk'] = $request->no_induk;
         $data['nama'] = $request->nama;
+        $data['golongan'] = $request->golongan;
+        $data['lulusan'] = $request->lulusan;
         $data['username'] = $request->username;
         $data['password'] = bcrypt($request->password);
         $data['tempat_lahir'] = $request->tempat_lahir;
@@ -115,6 +126,7 @@ class GuruController extends Controller
         $data['alamat'] = $request->alamat;
         $data['deskripsi'] = $request->deskripsi;
         $data['status'] = $request->status;
+        // $data['ket'] = $request->ket;
         // $data['created_at']=
         $data['updated_at'] =  $data['updated_at'] = date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));
         $file = $request->file('foto');

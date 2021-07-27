@@ -81,7 +81,7 @@
                     {{csrf_field()}}
                     <div class="form-group {{$errors->has('score') ? 'has-error' :''}}">
                         <label for="exampleFormControlInput1">Nilai</label>
-                        <input name="score" type="text" class="form-control" id="inputscore" placeholder="Input Nilai" value="{{old('score')}}">
+                        <input name="score" type="number" max="100" min="0" class="form-control" id="inputscore" placeholder="Input Nilai" value="{{old('score')}}">
                         @if($errors->has('score'))
                         <span class="right badge badge-danger" class=" help-block">{{$errors->first('score')}}</span>
                         @endif

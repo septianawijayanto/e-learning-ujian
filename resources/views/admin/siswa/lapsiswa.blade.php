@@ -7,7 +7,8 @@
             <th scope="col">No Induk</th>
             <th scope="col">NISN</th>
             <th scope="col">Nama</th>
-            <!-- <th scope="col">Username</th> -->
+            <th scope="col">Username</th>
+            <th scope="col">TTL</th>
             <th scope="col">Gender</th>
             <th scope="col">Kelas</th>
             <th scope="col">Agama</th>
@@ -23,7 +24,8 @@
             <td>{{$dt->nisn}}</td>
             <!-- <td> <a href="{{ \Storage::url($dt->foto) }}">Lihat File </a></td> -->
             <td>{{$dt->nama}}</td>
-            <!-- <td>{{$dt->username}}</td> -->
+            <td>{{$dt->username}}</td>
+            <td>{{$dt->tempat_lahir}}, {{$dt->tgl_lahir}}</td>
             <td>{{$dt->jenkel}}</td>
             <td>{{$dt->kelas->kelas}}</td>
             <td>{{$dt->agama}}</td>

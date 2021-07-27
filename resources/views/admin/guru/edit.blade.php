@@ -47,6 +47,20 @@
                             <span class="right badge badge-danger" class=" help-block">{{$errors->first('lulusan')}}</span>
                             @endif
                         </div>
+                        <div class="form-group {{$errors->has('mapel_id') ? 'has-error' :''}}">
+                            <label for="mapel_id">Mapel</label>
+                            <select name="mapel_id" class="form-control" id="mapel_id" require>
+                                <option value="">-Pilih-</option>
+                                @foreach($mapel as $m)
+                                <option value="{{$m->id}}" @if ($m->id===$data->mapel_id)
+                                    selected
+                                    @endif>{{$m->mapel}}</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('mapel_id'))
+                            <span class="right badge badge-danger" class=" help-block">{{$errors->first('mapel_id')}}</span>
+                            @endif
+                        </div>
                         <div class="form-group {{$errors->has('username') ? 'has-error' :''}}">
                             <label for="exampleFormControlInput1">Username</label>
                             <input name="username" type="text" class="form-control" id="inputusername" placeholder="Input Username" value="{{$data->username}}">

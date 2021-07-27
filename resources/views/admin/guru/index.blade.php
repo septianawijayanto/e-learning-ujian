@@ -22,7 +22,8 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Golongan</th>
                 <th scope="col">Pendidikan</th>
-                <!-- <th scope="col">Username</th> -->
+                <th scope="col">Mapel</th>
+                <th scope="col">Username</th>
                 <th scope="col">Gender</th>
 
                 <th scope="col">TTL</th>
@@ -41,7 +42,8 @@
                 <td>{{$dt->nama}}</td>
                 <td>{{$dt->golongan}}</td>
                 <td>{{$dt->lulusan}}</td>
-                <!-- <td>{{$dt->username}}</td> -->
+                <td>{{$dt->mapel->mapel}}</td>
+                <td>{{$dt->username}}</td>
                 <td>{{$dt->jenkel}}</td>
                 <td>{{$dt->tempat_lahir}}, {{$dt->tgl_lahir}}</td>
                 <td>{{$dt->agama}}</td>
@@ -85,16 +87,16 @@
             <div class="modal-body">
                 <form action="{{ route('guru.store') }}" method="POST" enctype="multipart/form-data">
                     {{csrf_field()}}
-
+                    <div class="form-group {{$errors->has('nama') ? 'has-error' :''}}">
+                        <label for="exampleFormControlInput1">Nama</label>
+                        <input name="nama" type="text" class="form-control" id="inputnama" placeholder="Input Nama" value="{{old('nama')}}">
+                        @if($errors->has('nama'))
+                        <span class="right badge badge-danger" class=" help-block">{{$errors->first('nama')}}</span>
+                        @endif
+                    </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="form-group {{$errors->has('nama') ? 'has-error' :''}}">
-                                <label for="exampleFormControlInput1">Nama</label>
-                                <input name="nama" type="text" class="form-control" id="inputnama" placeholder="Input Nama" value="{{old('nama')}}">
-                                @if($errors->has('nama'))
-                                <span class="right badge badge-danger" class=" help-block">{{$errors->first('nama')}}</span>
-                                @endif
-                            </div>
+
                             <div class="form-group {{$errors->has('no_induk') ? 'has-error' :''}}">
                                 <label for="exampleFormControlInput1">No Induk</label>
                                 <input name="no_induk" type="text" class="form-control" id="inputno_induk" placeholder="Input No Induk" value="{{old('no_induk')}}">
@@ -121,6 +123,18 @@
                                 <input name="username" type="text" class="form-control" id="inputusername" placeholder="Input Username" value="{{old('username')}}">
                                 @if($errors->has('username'))
                                 <span class="right badge badge-danger" class=" help-block">{{$errors->first('username')}}</span>
+                                @endif
+                            </div>
+                            <div class="form-group {{$errors->has('mapel_id') ? 'has-error' :''}}">
+                                <label for="mapel_id">Mapel</label>
+                                <select name="mapel_id" class="form-control" id="mapel_id" require>
+                                    <option value="">-Pilih-</option>
+                                    @foreach($mapel as $m)
+                                    <option value="{{$m->id}}">{{$m->mapel}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('mapel_id'))
+                                <span class="right badge badge-danger" class=" help-block">{{$errors->first('mapel_id')}}</span>
                                 @endif
                             </div>
                             <div class="form-group {{$errors->has('foto') ? 'has-error' :''}}">

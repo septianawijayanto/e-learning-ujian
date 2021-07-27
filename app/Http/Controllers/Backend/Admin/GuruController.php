@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Model\Guru;
+use App\Models\Model\Mapel;
 use Carbon\Carbon;
 use PDF;
 use Illuminate\Http\Request;
@@ -14,7 +15,8 @@ class GuruController extends Controller
     {
         $title = 'Data Guru';
         $data = Guru::all();
-        return view('admin.guru.index', compact('title', 'data'));
+        $mapel = Mapel::get();
+        return view('admin.guru.index', compact('title', 'data', 'mapel'));
     }
     public function store(Request $request)
     {
@@ -40,6 +42,7 @@ class GuruController extends Controller
             'status' => 'required',
             'golongan' => 'required',
             'lulusan' => 'required',
+            'mapel_id' => 'required',
             // 'ket' => 'required',
             'username' => 'required|unique:guru',
             'foto' => 'mimes:jpg,jpeg,png',
@@ -49,6 +52,7 @@ class GuruController extends Controller
         $data['golongan'] = $request->golongan;
         $data['lulusan'] = $request->lulusan;
         $data['username'] = $request->username;
+        $data['mapel_id'] = $request->mapel_id;
         $data['password'] = bcrypt($request->password);
         $data['tempat_lahir'] = $request->tempat_lahir;
         $data['tgl_lahir'] = $request->tgl_lahir;
@@ -82,7 +86,8 @@ class GuruController extends Controller
     {
         $title = 'Edit Data guru';
         $data = Guru::find($id);
-        return view('admin.guru.edit', compact('title', 'data'));
+        $mapel = Mapel::get();
+        return view('admin.guru.edit', compact('title', 'data', 'mapel'));
     }
     public function update(Request $request, $id)
     {
@@ -110,6 +115,7 @@ class GuruController extends Controller
             'foto' => 'mimes:jpg,jpeg,png',
             'golongan' => 'required',
             'lulusan' => 'required',
+            'mapel_id' => 'required',
             // 'ket' => 'required',
         ], $messages);
         $data['no_induk'] = $request->no_induk;
@@ -126,6 +132,7 @@ class GuruController extends Controller
         $data['alamat'] = $request->alamat;
         $data['deskripsi'] = $request->deskripsi;
         $data['status'] = $request->status;
+        $data['mapel_id'] = $request->mapel_id;
         // $data['ket'] = $request->ket;
         // $data['created_at']=
         $data['updated_at'] =  $data['updated_at'] = date('Y-m-d H:i:s', strtotime(Carbon::today()->toDateString()));

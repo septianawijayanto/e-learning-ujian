@@ -29,8 +29,8 @@ class KelolaJawabanController extends Controller
     {
         $title = 'Detail Jawaban';
 
-        $siswa = Siswa::findOrFail($id);
+        // $siswa = Siswa::findOrFail($id);
         $data = NilaiPilgan::where('ujian_id', $id)->get();
-        return view('guru.jawaban.detail', compact('title', 'data', 'siswa'));
+        return view('guru.jawaban.detail', compact('title', 'data'));
     }
 }

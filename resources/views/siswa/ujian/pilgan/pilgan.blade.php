@@ -41,7 +41,7 @@
                     <table width="100%">
                         <tr>
                             <td width="15px" valign="top"><span>A.</span></td>
-                            <td valign="top" class="pilihan">{{ $pil_a }}</td>
+                            <td valign="top" class="pilihan">{!! $pil_a !!}</td>
                         </tr>
                     </table>
                 </div>
@@ -54,7 +54,7 @@
                     <table width="100%">
                         <tr>
                             <td width="15px" valign="top"><span>B.</span></td>
-                            <td valign="top" class="pilihan">{{ $pil_b }}</td>
+                            <td valign="top" class="pilihan">{!! $pil_b !!}</td>
                         </tr>
                     </table>
                 </div>
@@ -67,7 +67,7 @@
                     <table width="100%">
                         <tr>
                             <td width="15px" valign="top"><span>C.</span></td>
-                            <td valign="top" class="pilihan">{{ $pil_c }}</td>
+                            <td valign="top" class="pilihan">{!! $pil_c !!}</td>
                         </tr>
                     </table>
                 </div>
@@ -80,7 +80,7 @@
                     <table width="100%">
                         <tr>
                             <td width="15px" valign="top"><span>D.</span></td>
-                            <td valign="top" class="pilihan">{{ $pil_d }}</td>
+                            <td valign="top" class="pilihan">{!! $pil_d !!}</td>
                         </tr>
                     </table>
                 </div>
